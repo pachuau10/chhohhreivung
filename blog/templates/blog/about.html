@@ -3,119 +3,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <title>About</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <title>About</title>
 </head>
 <body>
 
+  <!-- Navbar -->
+  <nav class="bg-emerald-700 px-5 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="/" class="text-white text-2xl font-bold">Chhohhreivung</a>
+      <button id="menu-btn" class="sm:hidden text-white text-3xl focus:outline-none">&#9776;</button>
+      <div class="hidden sm:flex space-x-8">
+        <a href="/" class="text-white text-lg hover:text-gray-200 hover:underline">Home</a>
+        <a href="http://news.kawnek.com/" class="text-white text-lg hover:text-gray-200 hover:underline">News</a>
+        <a href="{% url 'about' %}" class="text-white text-lg hover:text-gray-200 hover:underline">About</a>
+        <a href="{% url 'services' %}" class="text-white text-lg hover:text-gray-200 hover:underline">Services</a>
+      </div>
+    </div>
+    <div id="menu" class="sm:hidden hidden flex flex-col items-start px-5 mt-4 space-y-2">
+      <a href="/" class="text-white text-base hover:underline">Home</a>
+      <a href="http://news.kawnek.com/" class="text-white text-base hover:underline">News</a>
+      <a href="{% url 'about' %}" class="text-white text-base hover:underline">About</a>
+      <a href="{% url 'services' %}" class="text-white text-base hover:underline">Services</a>
+    </div>
+  </nav>
 
-
-    <nav class="bg-emerald-700 px-5 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Left: Logo -->
-            <a href="/" class="text-white text-2xl font-bold">Chhohhreivung</a>
-
-            <!-- Right: Hamburger Button (mobile only) -->
-            <button id="menu-btn" class="sm:hidden text-white text-3xl focus:outline-none">
-            &#9776;
-            </button>
-
-            <!-- Desktop Nav Links -->
-            <div class="hidden sm:flex space-x-8">
-
-
-            <a href="/" class="text-white text-lg hover:text-gray-200 hover:underline">Home</a>
-            <a href="http://news.kawnek.com/" class="text-white text-lg hover:text-gray-200 hover:underline">News</a>
-            <a href="{% url 'about' %}" class="text-white text-lg hover:text-gray-200 hover:underline">About</a>
-            <a href="{% url 'services' %}" class="text-white text-lg hover:text-gray-200 hover:underline">Services</a>
-            </div>
-        </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="menu" class="sm:hidden hidden flex flex-col items-start px-5 mt-4 space-y-2">
-             <a href="/" class="text-white text-base hover:underline">Home</a>
-            <a href="http://news.kawnek.com/" class="text-white text-base hover:underline">News</a>
-            <a href="{% url 'about' %}" class="text-white text-base hover:underline">About</a>
-            <a href="{% url 'services' %}" class="text-white text-base hover:underline">Services</a>
-        </div>
-    </nav>
-
-<div class="section py-8 px-4">
-  <div class="container max-w-6xl mx-auto">
-    <div class="container-section">
-      <div class="title">
+  <!-- About Section -->
+  <div class="section py-8 px-4">
+    <div class="container max-w-6xl mx-auto">
+      <div class="container-section">
         <!-- Section Heading -->
         <h1 class="text-3xl font-bold text-center sm:text-left mb-6">About ME</h1>
 
-        <!-- Image: centered below heading on mobile only -->
-        <div class="block sm:hidden mb-6">
-          <div class="flex justify-center">
-            <img src="{% static 'images/profile.jpg' %}" alt="Profile"
-                 class="w-52 h-52 rounded-full object-cover">
-          </div>
+        <!-- Image: only shows on mobile -->
+        <div class="sm:hidden mb-6 flex justify-center">
+          <img src="{% static 'images/profile.jpg' %}" alt="Profile"
+               class="w-40 h-40 rounded-full object-cover shadow-md">
         </div>
 
-        <!-- Flex layout: text left, image right on desktop -->
-        <div class="content flex flex-col sm:flex-row items-start gap-8">
+        <!-- Flex layout for desktop -->
+        <div class="content flex flex-col sm:flex-row items-center sm:items-start gap-8">
 
           <!-- Text content -->
           <div class="text-section text-center sm:text-left space-y-4 sm:w-1/2">
             <h3>Chibai <span class="font-bold">Chhohhreivung</span> ah ka lo lawm a che.</h3>
-            <p>Ka hming chu <span class="font-bold">PC Ramduhawma</span> a ni a, Keitum khua ka ni.Ramhlun South,Aizawl ah zirna vangin ka awm mek a ni.</p>
+            <p>Ka hming chu <span class="font-bold">PC Ramduhawma</span> a ni a, Keitum khua ka ni. Ramhlun South, Aizawl ah zirna vangin ka awm mek a ni.</p>
             <p>A hnuai a mi hi ka social media link a ni a, min mamawhna i neih chuan min lo be dawn nia</p>
-
             <p>Tin 'News' link-a i luh chuan Kawnek News ah hruai lut che in, Mizotawng ngeiin Technology news i chhiar thei ang.</p>
 
             <!-- Read More Button -->
-            <div class="button">
+            <div>
               <a href="#" class="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700 transition">
                 Read More
               </a>
             </div>
 
             <!-- Social Media Icons -->
-            <div class="icon text-2xl space-x-4 pt-2 text-emerald-700 flex justify-center sm:justify-start">
-              <a href="https://www.instagram.com/_pachuau10/">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-              <a href="https://www.facebook.com/ramduhawma.pc">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-              <a href="https://github.com/pachuau10">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
+            <div class="text-2xl space-x-4 pt-2 text-emerald-700 flex justify-center sm:justify-start">
+              <a href="https://www.instagram.com/_pachuau10/"><ion-icon name="logo-instagram"></ion-icon></a>
+              <a href="https://www.facebook.com/ramduhawma.pc"><ion-icon name="logo-facebook"></ion-icon></a>
+              <a href="https://github.com/pachuau10"><ion-icon name="logo-github"></ion-icon></a>
             </div>
           </div>
 
-          <!-- Image section for desktop only -->
+          <!-- Image for desktop -->
           <div class="hidden sm:flex sm:w-1/2 justify-center">
             <img src="{% static 'images/profile.jpg' %}" alt="Profile"
-                 class="w-52 h-52 rounded-full object-cover">
+                 class="w-52 h-52 rounded-full object-cover shadow-md">
           </div>
 
         </div>
       </div>
     </div>
   </div>
-</div>
 
-
-
+  <!-- Menu toggle -->
   <script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
-
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
-
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
-
 </html>
-
