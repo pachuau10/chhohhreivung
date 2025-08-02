@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Services</title>
+</head>
+<body>
+
+    <nav class="bg-emerald-700 px-5 py-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- Left: Logo -->
+    <a href="/" class="text-white text-2xl font-bold">Chhohhreivung</a>
+
+    <!-- Right: Hamburger Button (mobile only) -->
+    <button id="menu-btn" class="sm:hidden text-white text-3xl focus:outline-none">
+      &#9776;
+    </button>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden sm:flex space-x-8">
+    
+      <a href="/" class="text-white text-lg hover:text-gray-200 hover:underline">Home</a>
+      <a href="http://news.kawnek.com/" class="text-white text-lg hover:text-gray-200 hover:underline">News</a>
+      <a href="{% url 'about' %}" class="text-white text-lg hover:text-gray-200 hover:underline">About</a>
+      <a href="{% url 'services' %}" class="text-white text-lg hover:text-gray-200 hover:underline">Services</a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="menu" class="sm:hidden hidden flex flex-col items-start px-5 mt-4 space-y-2">
+    <a href="/" class="text-white text-base hover:underline">Home</a>
+    <a href="http://news.kawnek.com/" class="text-white text-base hover:underline">News</a>
+    <a href="{% url 'about' %}" class="text-white text-base hover:underline">About</a>
+    <a href="{% url 'services' %}" class="text-white text-base hover:underline">Services</a>
+  </div>
+</nav>
+   
+        <div class="w-full bg-gray-100 py-6">
+            <p class="text-3xl px-6 text-center font-bold">Mi thiam tak ka ni lo va.</p>
+        </div><br> <br>
+        <p class="text-center">I duh chuan website tlawm te in kan siam sak thei reng che...</p><hr><br><br>
+
+    
+    
+  <script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>

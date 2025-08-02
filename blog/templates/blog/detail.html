@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-3xl">{{ post.title  }}</h1>
+
+    <span class="text-sm text-gray-500">{{ post.created_at }}</span>
+
+{% if post.image %}
+  <img src="{{ post.image.url }}" alt="{{ post.title }}"
+       class="max-w-3xl w-full max-h-[450px] object-contain mx-auto rounded-xl shadow-md mb-6" />
+{% endif %}
+
+
+
+
+<div class="bg-white text-black p-6 rounded-lg shadow-2xl">
+  {{ post.content|linebreaksbr }}
+</div>
+
+
+
+    <div class="mt-8">
+        <form class="space-y-4" method="post" action=".">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <button class="py-4 px-8 bg-emerald-700 text-white">Submit</button>
+        </form>
+    </div>
+
+{%  endblock %}

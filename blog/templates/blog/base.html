@@ -1,0 +1,78 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Chhohhreivung</title>
+  </head>
+<body>
+
+
+<nav class="bg-emerald-700 px-5 py-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- Left: Logo -->
+    <a href="/" class="text-white text-2xl font-bold">Chhohhreivung</a>
+
+    <!-- Right: Hamburger Button (mobile only) -->
+    <button id="menu-btn" class="sm:hidden text-white text-3xl focus:outline-none">
+      &#9776;
+    </button>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden sm:flex space-x-8">
+
+      <a href="/" class="text-white text-lg hover:text-gray-200 hover:underline">Home</a>
+      <a href="http://news.kawnek.com/" class="text-white text-lg hover:text-gray-200 hover:underline">News</a>
+      <a href="{% url 'about' %}" class="text-white text-lg hover:text-gray-200 hover:underline">About</a>
+      <a href="{% url 'services' %}" class="text-white text-lg hover:text-gray-200 hover:underline">Services</a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="menu" class="sm:hidden hidden flex flex-col items-start px-5 mt-4 space-y-2">
+    <a href="/" class="text-white text-base hover:underline">Home</a>
+    <a href="http://news.kawnek.com/" class="text-white text-base hover:underline">News</a>
+    <a href="{% url 'about' %}" class="text-white text-base hover:underline">About</a>
+    <a href="{% url 'services' %}" class="text-white text-base hover:underline">Services</a>
+    <a href="{% url 'post_list' %}" class="text-white text-base hover:underline">Posts</a>
+  </div>
+</nav>
+
+
+<!-- Main Section -->
+<main class="py-6 px-4 sm:px-12">
+
+    {% if show_welcome %}
+        <div class="w-full bg-gray-100 py-6">
+            <p class="text-xl sm:text-3xl px-4 text-center font-bold">
+                Chhohhreivung Website-ah ka lo lawm a che 😊
+            </p>
+        </div><br><br>
+
+        <p class="text-center text-base sm:text-lg">
+            Lo hlawkpui la, lo hlimpui ngei ang che...
+        </p>
+        <hr class="my-6">
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+</main>
+
+
+  <script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+
+</body>
+</html>
